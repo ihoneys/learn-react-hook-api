@@ -1,14 +1,8 @@
 // import { Button } from "antd";
 // import { useEffect, useRef, useState } from "react";
-// import useRefState from "../hooks/useRefState";
 
-// const usePrevious: <T>(x: T) => T = (value) => {
-//   const ref = useRef<typeof value>(value);
-//   useEffect(() => {
-//     ref.current = value;
-//   });
-//   return ref.current;
-// };
+// import usePrevious from "../hooks/usePrevious";
+// import useRefState from "../hooks/useRefState";
 
 // const UseRefDemo = () => {
 //   const [counter, counterRef, setCounter] = useRefState(0);
@@ -46,30 +40,31 @@ import React, { useState } from "react";
 import { Button } from "antd";
 import useRefState from "../hooks/useRefState";
 
-const Demo = () => {
-  const [num, changeNum, numRef] = useRefState(1);
+const Counter = () => {
+  const [number, setNumber, numRef] = useRefState(1);
   const [str, changeStr] = useState("现在数字是1");
-  console.log(numRef.current);
+
   const getNum = () => {
     const newStr = "现在数字是" + numRef.current;
-    // console.log(numRef);
+    console.log(numRef);
     changeStr(newStr);
   };
 
-  const setNum = () => {
-    // 使用 async await  自执行函数  setTimeout 都没用
-    changeNum(num + 1);
-    // 执行之后  getNum里拿不到最新的state
+  const changeNumber = () => {
+    setNumber(number + 1);
     getNum();
   };
 
   return (
     <div>
-      <Button onClick={setNum}>点我+1</Button>
-      <div>{num}</div>
+      <h1>useRef demo</h1>
+      <Button type="primary" onClick={changeNumber}>
+        增加+++
+      </Button>
+      <div>{number}</div>
       <div>{str}</div>
     </div>
   );
 };
 
-export default Demo;
+export default Counter;

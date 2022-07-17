@@ -4,14 +4,35 @@ import "antd/dist/antd.css";
 
 import UseCallbackDemo from "./useCallbackDemo";
 import UseRefDemo from "./useRefDemo";
+import UseStateDemo from "./useStateDemo";
+import UseReducerDemo from "./useReducerDemo";
+import { Link, Route, Routes } from "react-router-dom";
+import UseEffectDemo from "./useEffectDemo";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <UseCallbackDemo />
-      <UseRefDemo />
+      <Routes>
+        <Route path="/useStateDemo" element={<UseStateDemo />} />
+        <Route path="/useRefDemo" element={<UseRefDemo />} />
+        <Route path="/useCallbackDemo" element={<UseCallbackDemo />} />
+        <Route path="/useReducerDemo" element={<UseReducerDemo />} />
+        <Route path="/useEffectDemo" element={<UseEffectDemo />} />
+      </Routes>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          fontSize: "32px"
+        }}
+      >
+        <Link to="/useStateDemo">UseStateDemo</Link>
+        <Link to="/useRefDemo">UseRefDemo</Link>
+        <Link to="/useCallbackDemo">UseCallbackDemo</Link>
+        <Link to="/useReducerDemo">UseReducerDemo</Link>
+        <Link to="/useEffectDemo">useEffectDemo</Link>
+      </div>
     </div>
   );
 }
