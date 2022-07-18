@@ -8,6 +8,7 @@ import UseStateDemo from "./useStateDemo";
 import UseReducerDemo from "./useReducerDemo";
 import { Link, Route, Routes } from "react-router-dom";
 import UseEffectDemo from "./useEffectDemo";
+import UseContextDemo from "./useContextDemo";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/useCallbackDemo" element={<UseCallbackDemo />} />
         <Route path="/useReducerDemo" element={<UseReducerDemo />} />
         <Route path="/useEffectDemo" element={<UseEffectDemo />} />
+        <Route path="/useContextDemo" element={<UseContextDemo />} />
       </Routes>
 
       <div
@@ -31,7 +33,7 @@ function App() {
         <Link to="/useRefDemo">UseRefDemo</Link>
         <Link to="/useCallbackDemo">UseCallbackDemo</Link>
         <Link to="/useReducerDemo">UseReducerDemo</Link>
-        <Link to="/useEffectDemo">useEffectDemo</Link>
+        <Link to="/useContextDemo">UseContextDemo</Link>
       </div>
     </div>
   );
